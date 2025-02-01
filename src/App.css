@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #EDEFEE;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  width: 25%;
+  height: auto;
+}
+
+.navbar {
+  background-color: #495E57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-button {
+  color: #f4ce14;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+
+}
+
+.navbar-button:hover {
+  background-color: #333333;
+}
+
+
+.hero {
+  display: grid;
+  grid-template-columns:repeat(5, 1fr);
+  align-items: center;
+  background-color: #f4ce14;
+}
+
+.heroText{
+  grid-column: 2;
+}
+
+.hero img{
+  margin-top: 20px;
+  grid-column: 4;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  position: relative;
+  top: 20px;
+  border-radius: 8px;
+}
+
+.hero button{
+  color: #f4ce14;
+  background-color: #495E57;
+  border: none;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+
+}
+.hero button:hover {
+  background-color: #333333;
+}
+
+.specials {
+  background-color: #EDEFEE;
+  border: none;
+  padding: 20px;
+  text-align: center;
+}
+
+.specials-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.specials img {
+  width: 25%;
+  height: auto;
+}
+
+
+.booking {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}
+
+.booking input,
+.booking button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.booking button {
+  background-color: #495e57;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+/*
+primary colors:
+#495E57
+#F4CE14
+secondary colors:
+#EE9972
+#FBDABB
+#EDEFEE
+#333333
+*/

@@ -1,8 +1,13 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Specials from "./Special";
+import Hero from "./Hero";
+import BookingPage from "./BookingPage";
+
 function Main() {
   return (
     <main>
-      <h2>Welcome to my website!</h2>
-      <p>This is the main content area.</p>
+      <h2>Main Comp</h2>
     </main>
   );
 }
