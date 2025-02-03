@@ -3,7 +3,7 @@ import Booking from "../components/Booking";
 
 function BookingPage() {
   return (
-    <main>
+    <main className="bookingPage">
       <h1>Reserve a Table</h1>
       <Booking />
     </main>

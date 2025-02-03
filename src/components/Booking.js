@@ -11,8 +11,9 @@ function Booking() {
       guests: 1,
       message: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       alert("Your booking is confirmed");
+      resetForm();
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
@@ -28,7 +29,8 @@ function Booking() {
   return (
     <form onSubmit={formik.handleSubmit} className="booking">
       <label>
-        Name:
+        Name
+        <span className="required">*</span>
         <input
           type="text"
           name="name"
@@ -40,7 +42,8 @@ function Booking() {
       {formik.errors.name && <div>{formik.errors.name}</div>}
 
       <label>
-        Date/Time:
+        Date/Time
+        <span className="required">*</span>
         <input
           type="datetime-local"
           name="dateTime"
@@ -52,7 +55,8 @@ function Booking() {
       {formik.errors.dateTime && <div>{formik.errors.dateTime}</div>}
 
       <label>
-        No. of People:
+        No. of People
+        <span className="required">*</span>
         <input
           type="number"
           name="guests"
@@ -66,17 +70,18 @@ function Booking() {
       {formik.errors.guests && <div>{formik.errors.guests}</div>}
 
       <label>
-        Message:
+        Message
         <textarea
           name="message"
           value={formik.values.message}
           onChange={formik.handleChange}
-          required
         />
       </label>
       {formik.errors.message && <div>{formik.errors.message}</div>}
 
-      <button type="submit">Submit Reservation</button>
+      <button type="submit" className="submitTable">
+        <p>Submit Reservation</p>
+      </button>
     </form>
   );
 }

@@ -1,36 +1,61 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;800&family=Markazi+Text:wght@400;500&display=swap');
+
+body {
+  font-family: 'Karla', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
   background-color: #EDEFEE;
-  color: #333;
+  color: #333333;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: inherit;
-  font-weight: inherit;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 
 
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1,
+h2 {
+  font-family: 'Markazi Text', serif;
 }
 
-.header img {
-  width: 25%;
-  height: auto;
+h1 {
+  font-size: 64pt;
+  font-weight: 800;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-size: 40pt;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 18pt;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 16pt;
+  font-weight: 600;
+}
+
+p {
+  font-size: 16pt;
+  font-weight: 400;
 }
 
 .navbar {
-  background-color: #495E57;
+  background-color: #EDEFEE;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 10px 20px;
 }
@@ -42,33 +67,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-button {
-  color: #f4ce14;
   text-decoration: none;
   font-size: 16px;
   display: inline-block;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 16px;
   transition: background-color 0.2s ease;
 
 }
 
+.navbar-button p {
+  margin: 0;
+  padding: 0;
+  color: #495E57;
+}
+
+.navbar img {
+  width: 25%;
+  height: auto;
+}
+
 .navbar-button:hover {
-  background-color: #333333;
+  background-color: #f4ce14;
 }
 
 
 .hero {
   display: grid;
-  grid-template-columns:repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  background-color: #f4ce14;
+  background-color: #495E57;
 }
 
-.heroText{
+.heroText {
   grid-column: 2;
+  color: #f4ce14;
 }
 
-.hero img{
+.heroText p,
+.heroText h3 {
+  color: #EDEFEE;
+}
+
+.hero img {
   margin-top: 20px;
   grid-column: 4;
   width: 300px;
@@ -76,20 +117,27 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   position: relative;
   top: 20px;
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
-.hero button{
-  color: #f4ce14;
-  background-color: #495E57;
+.hero button {
+  color: #495E57;
+  background-color: #f4ce14;
   border: none;
   font-size: 16px;
   display: inline-block;
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: 16px;
   transition: background-color 0.2s ease;
-
 }
+
+.hero button p {
+  margin: 0;
+  padding: 0;
+  color: #495E57;
+}
+
+
 .hero button:hover {
   background-color: #333333;
 }
@@ -97,44 +145,120 @@ h1, h2, h3, h4, h5, h6 {
 .specials {
   background-color: #EDEFEE;
   border: none;
-  padding: 20px;
+  padding: 100px 0;
   text-align: center;
 }
 
 .specials-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
 }
 
-.specials img {
-  width: 25%;
+.specialCard {
+  background-color: #FBDABB;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 300px;
+}
+
+.specialCard img {
+  width: 100%;
   height: auto;
 }
 
+.itemTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.itemPrice {
+  color: red;
+}
+
+.bookingPage h1 {
+  text-align: center;
+}
 
 .booking {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  max-width: 500px;
+  margin: 10px auto;
 }
 
 .booking input,
-.booking button {
+.booking textarea {
   width: 100%;
-  padding: 10px;
-  margin: 5px 0;
+  height: auto;
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #495E57;
+  font-family: "karla", sans-serif;
+  font-size: 16px;
+  color: #333333;
 }
 
-.booking button {
-  background-color: #495e57;
-  color: white;
+.booking textarea {
+  padding-top: 10px;
+}
+
+.booking input[type="text"],
+.booking input[type="datetime-local"],
+.booking input[type="number"] {
+  height: 40px;
+}
+
+.booking textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.required {
+  color: red;
+}
+
+.submitTable {
+  color: #495E57;
+  background-color: #f4ce14;
   border: none;
-  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
 }
 
+.submitTable p {
+  margin: 0;
+  padding: 0;
+  color: #495E57;
+}
+
+
+.submitTable:hover {
+  background-color: #333333;
+}
+
+.footer {
+  background-color: #f4ce14;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 100px;
+  align-items: center;
+}
+
+.footer p {
+  color: #495E57;
+}
+
+.footer img {
+  width: 400px;
+  height: auto;
+}
 
 /*
 primary colors:
