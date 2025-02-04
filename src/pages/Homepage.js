@@ -4,7 +4,7 @@ import Specials from "../components/Special";
 
 function Homepage() {
   return (
-    <main>
+    <main className="homePage">
       <Hero />
       <Specials />
     </main>

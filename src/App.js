@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Homepage from "./pages/Homepage";
 import BookingPage from "./pages/BookingPage";
 import Footer from "./components/Footer";
+import ConfirmedBooking from "./components/ConfirmedBooking";
 
 function App() {
   return (
@@ -13,6 +14,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route
+            path="/confirmed"
+            element={
+              <ConfirmedBooking onClose={() => window.location.reload()} />
+            }
+          />
         </Routes>
       </BrowserRouter>
       <Footer />
