@@ -9,6 +9,7 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
       date: "",
       time: "",
       guests: 1,
+      occasion: "",
       message: "",
     },
     onSubmit: async (values, { resetForm }) => {
@@ -23,6 +24,7 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
         .min(1, "At least 1 guest")
         .max(12, "Maximum of 12 guests")
         .required("Number of guests is required"),
+      occasion: Yup.string(),
       message: Yup.string().max(144, "Message must be at least 5 characters"),
     }),
   });
@@ -34,79 +36,105 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
 
   return (
     <form onSubmit={formik.handleSubmit} className="booking">
-      <label>
+      <label For="name">
         Name
         <span className="required">*</span>
-        <input
-          type="text"
-          name="name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          required
-        />
       </label>
-      {formik.errors.name && <div>{formik.errors.name}</div>}
+      <input
+        type="text"
+        id="name"
+        name="name"
+        value={formik.values.name}
+        onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
+        required
+      />
+      {formik.touched.name && formik.errors.name && <div>{formik.errors.name}</div>}
 
-      <label>
+      <label For="date">
         Date
         <span className="required">*</span>
-        <input
-          type="date"
-          name="date"
-          value={formik.values.date}
-          onChange={(e) => {
-            formik.handleChange(e);
-            handleDateChange(e);
-          }}
-          required
-        />
       </label>
-      {formik.errors.date && <div>{formik.errors.date}</div>}
+      <input
+        type="date"
+        id="date"
+        name="date"
+        value={formik.values.date}
+        onBlur={(e) => {
+          formik.handleBlur(e);
+          handleDateChange(e);
+        }}
+        onChange={formik.handleChange}
+        required
+      />
+      {formik.touched.date && formik.errors.date && <div>{formik.errors.date}</div>}
 
-      <label>
+      <label For="time">
         Time
         <span className="required">*</span>
-        <select
-          name="time"
-          value={formik.values.time}
-          onChange={formik.handleChange}
-          required
-          disabled={!formik.values.date}
-        >
-          <option value="">Select a time</option>
-          {availableTimes.map((time, index) => (
-            <option key={index} value={time}>
-              {time}
-            </option>
-          ))}
-        </select>
       </label>
-      {formik.errors.time && <div>{formik.errors.time}</div>}
+      <select
+        id="time"
+        name="time"
+        value={formik.values.time}
+        onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
+        required
+        disabled={!formik.values.date}
+      >
+        <option value="">Select a time</option>
+        {availableTimes.map((time, index) => (
+          <option key={index} value={time}>
+            {time}
+          </option>
+        ))}
+      </select>
+      {formik.touched.time && formik.errors.time && <div>{formik.errors.time}</div>}
 
-      <label>
+      <label For="guests">
         No. of People
         <span className="required">*</span>
-        <input
-          type="number"
-          name="guests"
-          value={formik.values.guests}
-          min="1"
-          max="12"
-          onChange={formik.handleChange}
-          required
-        />
       </label>
-      {formik.errors.guests && <div>{formik.errors.guests}</div>}
+      <input
+        type="number"
+        id="guests"
+        name="guests"
+        value={formik.values.guests}
+        min="1"
+        max="12"
+        onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
+        required
+      />
+      {formik.touched.guests && formik.errors.guests && <div>{formik.errors.guests}</div>}
 
-      <label>
-        Message
-        <textarea
-          name="message"
-          value={formik.values.message}
-          onChange={formik.handleChange}
-        />
+      <label For="occasion">
+        Occasion
       </label>
-      {formik.errors.message && <div>{formik.errors.message}</div>}
+      <select
+        id="occasion"
+        name="occasion"
+        value={formik.values.occasion}
+        onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
+      >
+        <option>Select an occasion</option>
+        <option>Birthday</option>
+        <option>Anniversary</option>
+      </select>
+      {formik.touched.occasion && formik.errors.occasion && <div>{formik.errors.occasion}</div>}
+
+      <label For="message">
+        Message
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        value={formik.values.message}
+        onBlur={formik.handleBlur}
+        onChange={formik.handleChange}
+      />
+      {formik.touched.message && formik.errors.message && <div>{formik.errors.message}</div>}
 
       <button type="submit" className="submitTable">
         Submit Reservation

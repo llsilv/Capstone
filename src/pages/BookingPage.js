@@ -19,7 +19,7 @@ const seededRandom = function (seed) {
   var a = 185852;
   var s = seed % m;
   return function () {
-    return (s = s * a % m) / m;
+    return (s = (s * a) % m) / m;
   };
 };
 
@@ -45,7 +45,7 @@ function BookingPage() {
   };
 
   const [state, dispatch] = useReducer(timesReducer, initialState);
-  const navigate = useNavigate(); // Use navigate hook
+  const navigate = useNavigate();
 
   const initializeTimes = () => {
     const today = new Date();
