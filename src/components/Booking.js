@@ -49,7 +49,9 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
         onChange={formik.handleChange}
         required
       />
-      {formik.touched.name && formik.errors.name && <div>{formik.errors.name}</div>}
+      {formik.touched.name && formik.errors.name && (
+        <div>{formik.errors.name}</div>
+      )}
 
       <label For="date">
         Date
@@ -67,7 +69,9 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
         onChange={formik.handleChange}
         required
       />
-      {formik.touched.date && formik.errors.date && <div>{formik.errors.date}</div>}
+      {formik.touched.date && formik.errors.date && (
+        <div>{formik.errors.date}</div>
+      )}
 
       <label For="time">
         Time
@@ -82,14 +86,18 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
         required
         disabled={!formik.values.date}
       >
-        <option value="">Select a time</option>
+        <option value="">
+          {!formik.values.date ? "Select a date first" : "Select a time"}
+        </option>
         {availableTimes.map((time, index) => (
           <option key={index} value={time}>
             {time}
           </option>
         ))}
       </select>
-      {formik.touched.time && formik.errors.time && <div>{formik.errors.time}</div>}
+      {formik.touched.time && formik.errors.time && (
+        <div>{formik.errors.time}</div>
+      )}
 
       <label For="guests">
         No. of People
@@ -106,11 +114,11 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
         onChange={formik.handleChange}
         required
       />
-      {formik.touched.guests && formik.errors.guests && <div>{formik.errors.guests}</div>}
+      {formik.touched.guests && formik.errors.guests && (
+        <div>{formik.errors.guests}</div>
+      )}
 
-      <label For="occasion">
-        Occasion
-      </label>
+      <label For="occasion">Occasion</label>
       <select
         id="occasion"
         name="occasion"
@@ -122,11 +130,11 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
-      {formik.touched.occasion && formik.errors.occasion && <div>{formik.errors.occasion}</div>}
+      {formik.touched.occasion && formik.errors.occasion && (
+        <div>{formik.errors.occasion}</div>
+      )}
 
-      <label For="message">
-        Message
-      </label>
+      <label For="message">Message</label>
       <textarea
         id="message"
         name="message"
@@ -134,7 +142,9 @@ function Booking({ availableTimes, updateAvailableTimes, submitForm }) {
         onBlur={formik.handleBlur}
         onChange={formik.handleChange}
       />
-      {formik.touched.message && formik.errors.message && <div>{formik.errors.message}</div>}
+      {formik.touched.message && formik.errors.message && (
+        <div>{formik.errors.message}</div>
+      )}
 
       <button type="submit" className="submitTable">
         Submit Reservation

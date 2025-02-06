@@ -8,7 +8,7 @@ import ConfirmedBooking from "./components/ConfirmedBooking";
 
 function App() {
   return (
-    <>
+    <div className="wrapper">
       <BrowserRouter>
         <Nav />
         <Routes>
@@ -23,7 +23,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
-    </>
+    </div>
   );
 }
 

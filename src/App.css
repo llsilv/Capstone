@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;800&family=Markazi+Text:wght@400;500&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Karla', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #EDEFEE;
+  background-color: #fbdabb;
   color: #333333;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
-
 
 h1,
 h2 {
@@ -28,8 +28,6 @@ h2 {
 h1 {
   font-size: 64pt;
   font-weight: 800;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 h2 {
@@ -52,45 +50,43 @@ p {
   font-weight: 400;
 }
 
+button {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  border: none;
+}
+
 .navbar {
-  background-color: #EDEFEE;
+  background-color: #fbdabb;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: space-around;
 }
 
 .navbar ul {
   list-style-type: none;
   display: flex;
-  gap: 15px;
 }
 
-.navbar-button {
-  text-decoration: none;
+.navbarButton {
   font-size: 16px;
   display: inline-block;
   padding: 10px 20px;
   border-radius: 16px;
+  color: #495E57;
   transition: background-color 0.2s ease;
 
 }
 
-.navbar-button p {
-  margin: 0;
-  padding: 0;
-  color: #495E57;
-}
-
 .navbar img {
-  width: 10%;
+  width: 200px;
   height: auto;
+  padding: 10px;
 }
 
-.navbar-button:hover {
+.navbarButton:hover {
   background-color: #f4ce14;
 }
-
 
 .hero {
   display: grid;
@@ -104,9 +100,9 @@ p {
   color: #f4ce14;
 }
 
-.heroText p,
+.heroDesc,
 .heroText h3 {
-  color: #EDEFEE;
+  color: #fbdabb;
 }
 
 .hero img {
@@ -118,9 +114,10 @@ p {
   position: relative;
   top: 20px;
   border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.hero button {
+.heroButton {
   color: #495E57;
   background-color: #f4ce14;
   border: none;
@@ -131,25 +128,19 @@ p {
   transition: background-color 0.2s ease;
 }
 
-.hero button p {
-  margin: 0;
-  padding: 0;
-  color: #495E57;
-}
-
-
-.hero button:hover {
+.heroButton:hover {
+  color: #f4ce14;
   background-color: #333333;
 }
 
 .specials {
-  background-color: #EDEFEE;
+  background-color: #FBDABB;
   border: none;
   padding: 100px 0;
   text-align: center;
 }
 
-.specials-list {
+.specialsList {
   padding-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -158,10 +149,11 @@ p {
 }
 
 .specialCard {
-  background-color: #FBDABB;
+  background-color: #EE9972;
   border-radius: 16px;
   overflow: hidden;
   max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .specialCard img {
@@ -180,15 +172,25 @@ p {
   color: red;
 }
 
+main {
+  flex: 1;
+}
+
 .bookingPage h1 {
+  background-color: #495E57;
+  color: #f4ce14;
   text-align: center;
 }
 
 .booking {
   max-width: 500px;
-  margin: 10px auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.booking select,
 .booking input,
 .booking textarea {
   width: 100%;
@@ -200,6 +202,8 @@ p {
   font-family: "karla", sans-serif;
   font-size: 16px;
   color: #333333;
+  background-color: #EDEFEE;
+  box-sizing: border-box;
 }
 
 .booking textarea {
@@ -213,11 +217,12 @@ p {
 }
 
 .booking textarea {
-  height: 150px;
+  height: 100px;
   resize: vertical;
 }
 
-.required {
+.required,
+.booking div {
   color: red;
 }
 
@@ -232,16 +237,44 @@ p {
   transition: background-color 0.2s ease;
 }
 
-.submitTable p {
-  margin: 0;
-  padding: 0;
-  color: #495E57;
-}
-
-
 .submitTable:hover {
+  color: #f4ce14;
   background-color: #333333;
 }
+
+.confirmation {
+  color: #f4ce14;
+  padding: 100px;
+  background-color: #495E57;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmation h2 {
+  margin-bottom: 30px;
+}
+
+.confirmationButton {
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  color: #495E57;
+  background-color: #f4ce14;
+  border: none;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.confirmationButton:hover {
+  color: #f4ce14;
+  background-color: #333333;
+}
+
 
 .footer {
   background-color: #f4ce14;

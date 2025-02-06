@@ -31,7 +31,7 @@ function Special() {
   return (
     <section className="specials">
       <h2>This weeks specials!</h2>
-      <div className="specials-list">
+      <div className="specialsList">
         {specialsData.map((item) => (
           <div key={item.id} className="specialCard">
             <img src={item.img} alt={item.name} />
